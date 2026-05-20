@@ -3,8 +3,8 @@ import { createRoot } from "react-dom/client"
 import html2canvas from "html2canvas-pro"
 import JSZip from "jszip"
 
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter"
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import SyntaxHighlighter from "react-syntax-highlighter"
+import arduinoLight from "react-syntax-highlighter/dist/esm/styles/hljs/arduino-light"
 
 import Header from "./components/Header"
 import Controls from "./components/Controls"
@@ -133,11 +133,14 @@ export default function App(): React.JSX.Element {
         <div>
           <SyntaxHighlighter
             language={language}
-            style={nightOwl}
+            style={arduinoLight}
             showLineNumbers={true}
             // showInlineLineNumbers={true}
             wrapLongLines={true}
             startingLineNumber={1}
+            customStyle={{
+              minWidth: "500px",
+            }}
           >
             {rawCode.trim()}
           </SyntaxHighlighter>
